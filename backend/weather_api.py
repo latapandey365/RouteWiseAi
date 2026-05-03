@@ -1,6 +1,7 @@
 import requests
 from backend.tomtom_api import geocode_place
 import datetime
+import aiohttp
 
 WEATHER_API_KEY = "81b66e6697efb2b8adaa3f99f877b664"
 
@@ -83,7 +84,6 @@ def get_detailed_forecast_by_coords(lat: float, lon: float, target_timestamp: da
         return default
 
 
-import aiohttp
 
 async def async_get_combined_forecast(session: aiohttp.ClientSession, lat: float, lon: float, target_timestamp: datetime.datetime) -> dict:
     """
